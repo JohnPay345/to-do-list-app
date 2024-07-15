@@ -1,11 +1,15 @@
-import React from 'react';
+import React from 'react'
+import style from './App.module.css'
+import { Input } from './components/input/input'
+import { Button } from './components/button/button'
 
-function App() {
+export const App = () => {
   return (
-    <>
-      <h1>Hello, World</h1>
-    </>
-  );
+    <header className={style}>
+      <h1>Список дел</h1>
+      <Input />
+      <Button>Добавить</Button>
+      <Button>Выделить всё</Button>
+    </header>
+  )
 }
-
-export default App;
