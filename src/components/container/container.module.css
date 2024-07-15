@@ -1,0 +1,34 @@
+.container {
+    width: 100%;
+    display: flex;
+}
+
+.fdCol {
+    flex-direction: column;
+    margin-right: 10px;
+}
+
+.fdColRev {
+    flex-direction: column-reverse;
+}
+
+.w1 {
+    width: 10%;
+}
+
+.w2 {
+    width: 20%;
+}
+
+.w3 {
+    width: 30%;
+}
+
+.w4 {
+    width: 40%;
+}
+
+.w5 {
+    width: 50%;
+}
+
