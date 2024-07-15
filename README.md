@@ -5,7 +5,7 @@ This application was created for my promotion in React JS and Typescript and is 
 ## To install app
 1. Clone app from GitHub
 
-    ```git clone ```
+    ```git clone https://github.com/JohnPay345/to-do-list-app```
 
 2. Move to project
     
