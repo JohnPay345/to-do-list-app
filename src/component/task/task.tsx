@@ -1,4 +1,3 @@
-import React from 'react';
 import { Button } from '../button/button';
 import style from './task.module.css'
 
@@ -7,27 +6,21 @@ type Props = {
     text: string;
     id: string;
     arrayTasks: React.ReactNode[];
-    onClick?: React.MouseEventHandler;
+    getIndex: (indexTask: number) => void;
 }
 
-export const Task = ({ name, text, id, arrayTasks, onClick }: Props) => {
-    const handleInfo = () => {
+export const Task = ({ name, text, id, arrayTasks, getIndex }: Props) => {
+    const handleClickGetIndexTask = () => {
         let idTask = document.getElementById(id);
         let array: any[] = arrayTasks;
-        array.forEach((item) => {
-            if (item.props.id === idTask?.id) {
-                console.log(true)
-            } else {
-                console.log(false)
-            }
-        })
-        console.log(array.findIndex((item) => item.props.id == idTask?.id))
+        let indexTask = array.findIndex((item) => item.props.id == idTask?.id)
+        getIndex(indexTask);
     }
     return (
         <div className={style.task} id={id}>
             <h3>{name}</h3>
             <p>{text}</p>
-            <Button onClick={handleInfo}>Удалить</Button>
+            <Button onClick={handleClickGetIndexTask}>Удалить</Button>
         </div>
     )
 }

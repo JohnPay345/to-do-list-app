@@ -17,7 +17,6 @@ export const App = () => {
     text: '',
     arrayTasks: []
   });
-  const [array, setArray] = useState<any>([]);
 
   const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
     let newValue = event.target.value;
@@ -43,9 +42,16 @@ export const App = () => {
     if (!task.name || !task.text) {
       return;
     }
-    let newArrayTasks: React.ReactElement<HTMLDivElement>[] = array;
-    newArrayTasks.unshift(<Task key={generateKey(task.text)} name={task.name} text={task.text} id={generateKey(task.text)} arrayTasks={array} onClick={handleClickDeleteTask}/>);
-    setArray(newArrayTasks);
+    let newArrayTasks: React.ReactElement<HTMLDivElement>[] = task.arrayTasks;
+    newArrayTasks.unshift(
+      <Task
+        key={generateKey(task.text)}
+        name={task.name}
+        text={task.text}
+        id={generateKey(task.text)}
+        arrayTasks={newArrayTasks}
+        getIndex={handleClickDeleteTask} />
+    );
     setTask({
       name: '',
       text: '',
@@ -53,13 +59,13 @@ export const App = () => {
     });
   }
 
-  const handleClickDeleteTask = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClickDeleteTask = (indexTask: number) => {
     let newArrayTasks: React.ReactElement<HTMLDivElement>[] = task.arrayTasks;
-    newArrayTasks.shift();
+    newArrayTasks.splice(indexTask, 1);
     setTask((prev) => ({
       ...prev,
       arrayTasks: newArrayTasks
-    }))
+    }));
   }
 
   return (
