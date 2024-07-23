@@ -2,4 +2,6 @@ input {
     font-size: 3.5rem;
     padding: 20px 20px;
     margin-right: 30px;
+    border-radius: 5px;
+    outline-color: #24a4e5;
 }

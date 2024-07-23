@@ -1,4 +1,12 @@
 button {
     font-size: 3.5rem;
     padding: 20px 30px;
+    border-radius: 5px;
+    transition: all .5s ease-in;
+}
+
+button:active {
+    position: relative;
+    top: 3px;
+    border-color: #24a4e5;
 }
